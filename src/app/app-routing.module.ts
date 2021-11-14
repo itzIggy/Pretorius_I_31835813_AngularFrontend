@@ -5,9 +5,9 @@ import { ClientImagePageComponent } from './client-image-page/client-image-page.
 import { ClientRegisterComponent } from './client-register/client-register.component';
 
 const routes: Routes = [
-  {path: 'loginPage', component: ClientHomeComponent},
-  {path: 'ImagePage', component: ClientImagePageComponent},
-  {path: 'RegPage', component: ClientRegisterComponent}
+  {path: 'Login', component: ClientHomeComponent},
+  {path: 'Images', component: ClientImagePageComponent},
+  {path: 'Register', component: ClientRegisterComponent}
 ];
 
 @NgModule({

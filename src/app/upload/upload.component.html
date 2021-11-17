@@ -1,0 +1,30 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    </head>
+    <body>
+        <header>
+    
+            <input type="checkbox" id="toggle-btn">
+            <label for="toggle-btn" class="show-menu-btn"><i class="fas fa-bars"></i></label>
+    
+            <nav>
+                <ul class="navigation">
+                    <li><a href="Images"><i class="fas fa-house-damage"></i> Home</a></li>
+                    <li><a href="Upload"><i class="far fa-image"></i> Upload</a></li>
+                    <li><a href="#"><i class="far fa-image"></i> Search</a></li>
+                    <li><a href="#"><i class="fas fa-question"></i> Support</a></li>
+                    <li><a href=""><i class="fas fa-times"></i> logout</a></li>
+                    <label for="toggle-btn" class="hide-menu-btn"><i class="fas fa-times"></i></label>
+                </ul>
+            </nav>
+        </header>
+    </body>
+    <div>
+        <input type="file" id="customFile" (change)="selectFile($event)" placeholder="File To Upload">
+        <button class="btn btn-primary" [disabled]="!selectedFiles" (click)="upload()">Save File</button>
+        <br><br><br>
+    </div> 
+</html>

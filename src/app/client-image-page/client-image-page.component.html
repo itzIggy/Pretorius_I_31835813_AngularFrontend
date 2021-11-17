@@ -1,4 +1,4 @@
-<form>
+<!-- <form>
   <section>
     <nav>
       <ul class="menuItems">
@@ -10,8 +10,45 @@
     </nav>
   </section>
 </form>
+ -->
 
-<div *ngFor="let picture of pictures">
-    <img src="{{'data:image/jpg;base64,' + picture}}" />
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <link rel="stylesheet" href="./client-image-page.component.css">
+</head>
+<body >
+    <header style="border-radius: 5px;">
+
+        <!-- <img src="./NeuroTech.png"/> -->
+        <input type="checkbox" id="toggle-btn">
+        <label for="toggle-btn" class="show-menu-btn"><i class="fas fa-bars"></i></label>
+
+        <nav>
+            <ul class="navigation">
+                <li><a href="Images"><i class="fas fa-house-damage"></i> Home</a></li>
+                <li><a href="Upload"><i class="far fa-image"></i> Upload</a></li>
+                <li><a href="#"><i class="far fa-image"></i> Search</a></li>
+                <li><a href="#"><i class="fas fa-question"></i> Support</a></li>
+                <li><a href=""><i class="fas fa-times"></i> logout</a></li>
+                <label for="toggle-btn" class="hide-menu-btn"><i class="fas fa-times"></i></label>
+                
+
+            </ul>
+        </nav>
+    </header>
+</body>
+
+<div style="width: max-content; display: inline-block;" *ngFor="let picture of pictures" >
+  <img class="image-style" src="{{'data:image/jpg;base64,' + picture}}"  />
+  <div style="text-align: right;">
+    <input class="btn-download" type="submit" value="DOWNLOAD">
+  </div>
+  
 </div>
+</html>
+
+
 

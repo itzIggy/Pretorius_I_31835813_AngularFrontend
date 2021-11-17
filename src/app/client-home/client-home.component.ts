@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { MemberService } from '../member.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from './LoginCredentials.service';
 
 @Component({
   selector: 'app-client-home',
@@ -7,17 +10,25 @@ import { MemberService } from '../member.service';
   styleUrls: ['./client-home.component.css']
 })
 export class ClientHomeComponent implements OnInit {
-  //members : any;
 
-  constructor(){
- // constructor(private service: MemberService) {
+  declare token: string;
+
+  constructor(private loginService: LoginService, private router:Router){}
+
+  ngOnInit(): void {
     
   }
 
-  ngOnInit(): void {
-    // this.service.getMembers().subscribe(data => {
-    //     this.members=data;
-    // })
+  login(form: NgForm): void {
+    this.loginService.login(form.value).subscribe(
+      (Response: any)=> {
+        this.token = Response.payload;
+        localStorage.setItem('token', this.token);
+        this.router.navigateByUrl('/Images');
+      },
+      (error: HttpErrorResponse) => {
+        alert("Incorrect email or password");
+      }
+      );
   }
-
 }

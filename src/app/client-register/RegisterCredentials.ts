@@ -1,5 +1,4 @@
-export interface Member{
-    id: number;
+export interface RegisterCredentials{
     fname: string;
     lname: string;
     email: string;

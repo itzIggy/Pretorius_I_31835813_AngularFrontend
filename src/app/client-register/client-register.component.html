@@ -14,12 +14,12 @@
     </div>
 
     <!-- Login Form -->
-    <form>
-        <input type="text" id="FirstName" class="fadeIn second" name="signUp" placeholder="First Name">
-        <input type="text" id="LastName" class="fadeIn second" name="signUp" placeholder="Last Name">
-        <input type="text" id="Email" class="fadeIn second" name="signUp" placeholder="Email">
-        <input type="text" id="PhoneNumber" class="fadeIn second" name="signUp" placeholder="Phone Number">
-        <input type="password" id="Password" class="fadeIn third" name="signUp" placeholder="Password">
+    <form #RegForm="ngForm" (ngSubmit)="register(RegForm)">
+        <input type="text" id="FirstName" class="fadeIn second" name="fname" placeholder="First Name" ngModel required>
+        <input type="text" id="LastName" class="fadeIn second" name="lname" placeholder="Last Name" ngModel required>
+        <input type="text" id="Email" class="fadeIn second" name="email" placeholder="Email" ngModel required>
+        <input type="text" id="PhoneNumber" class="fadeIn second" name="phone" placeholder="Phone Number" ngModel required>
+        <input type="password" id="Password" class="fadeIn third" name="password" placeholder="Password" ngModel required>
         <input type="submit" class="fadeIn fourth" value="Sign Up">
     </form>
 

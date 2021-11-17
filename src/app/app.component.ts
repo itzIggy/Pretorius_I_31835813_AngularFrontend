@@ -1,32 +1,23 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Member } from './member';
-import { MemberService } from './member.service';
+import { enableProdMode, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { LoginCredentials } from './client-home/LoginCredentials';
+import { LoginService } from './client-home/LoginCredentials.service';
+
+enableProdMode();
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent implements OnInit{
-  title = 'imageFrontEnd';
-  public members: Member[] = [];
+  title: string = "ImageFrontEnd";
+  
   
   constructor() { }
 
-  ngOnInit(){
-    // this.getMembers();
+  ngOnInit(): void{
   }
-
-  // public getMembers(): void{
-  //   this.memberService.getMembers().subscribe(
-  //     (response: Member[]) => {
-  //       this.members = response;
-  //     },
-  //     (error:HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
+  
 }

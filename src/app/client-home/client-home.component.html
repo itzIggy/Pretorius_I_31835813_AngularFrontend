@@ -1,4 +1,6 @@
+
 <div class="wrapper fadeInDown">
+  
   <div id="formContent"> 
     <!-- Tabs Titles -->
     
@@ -14,10 +16,10 @@
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="Email" class="fadeIn second" name="login" placeholder="Email">
-      <input type="password" id="Password" class="fadeIn third" name="login" placeholder="Password">
-      <input routerLink='/Images' routerLinkActive='active' type="submit" class="fadeIn fourth" value="Log In">
+    <form #LoginForm="ngForm" (ngSubmit)="login(LoginForm)">
+      <input type="text" id="Email" class="fadeIn second" name="email" placeholder="Email" ngModel required >
+      <input type="text" id="Password" class="fadeIn third" name="password" placeholder="Password" ngModel required>
+      <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->

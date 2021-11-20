@@ -7,19 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class UploadService {
 
+    declare token: string;
+
     constructor(private http: HttpClient){}
 
-    uploadFile(file: File): Observable<HttpEvent<{}>> {
-        const formData: FormData = new FormData();
 
-        formData.append('file', file);
+    uploadFile(file: any): Observable<any> {
+        const formData = new FormData();
 
-        const req = new HttpRequest('POST', 'http://localhost:8090/photo/uploadFile', formData, {
-            reportProgress: true,
-            responseType:'text'
-        });
+        formData.append("file", file[0]);
+        console.log(file);
 
-        return this.http.request(req);
+        const headers = new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'));
+
+        return this.http.post('http://localhost:8090/photo/uploadFile', formData, {'headers':headers});
     }
 
 }

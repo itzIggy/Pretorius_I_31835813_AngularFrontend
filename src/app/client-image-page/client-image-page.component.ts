@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientImageService } from './ClientImages.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-client-image-page',
@@ -11,14 +12,14 @@ import { ClientImageService } from './ClientImages.service';
 })
 export class ClientImagePageComponent implements OnInit{
 
-  declare pictures: string;
+  declare pictures: any;
 
   constructor(private clientImageService: ClientImageService){}
+
 
   ngOnInit(): void {
     this.getPhotos();
   }
-
 
   getPhotos(): void{
     this.clientImageService.getPhotos().subscribe(

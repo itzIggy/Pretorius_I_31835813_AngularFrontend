@@ -33,4 +33,28 @@ export class ClientImagePageComponent implements OnInit{
     
   }
 
+  searchPhotos(imageName: any): void{
+    this.clientImageService.searchForPhoto(imageName).subscribe(
+      (Response: any) => {
+          this.pictures = Response.payload;
+      },
+      (error: HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    );
+    
+  }
+
+
+  deleteFile(name: any): void{
+    this.clientImageService.deleteImages(name).subscribe(
+      (Response: any) => {
+          window.location.reload();
+      },
+      (error: HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    );
+    
+  }
 }

@@ -8,24 +8,32 @@
   <nav>
     <a href="Images">Home</a>
     <a href="Upload">Upload</a>
-    <a href="Search">Search</a>
+    <a href="Search">ShareImages</a>
     <a href="#">Profile</a>
     <a href="">Logout</a>
     <div class="animation start-home"></div>
   </nav>
 
+  <form #newForm = "ngForm">
+    <div style="text-align: center; margin-top: 15px;">
+      <input class="searchBar"  style="padding-left: 3px;" type="search" #imageName id="searchBar" name="search" placeholder="Photo Name">
+      <button class="btnSearch" (click)="searchPhotos(imageName.value)" ><small>SEARCH</small> </button>
+    </div>
+</form>
   
-
 
   <div style="width: max-content; display: inline-block;" *ngFor="let picture of pictures" >
     <img class="image-style" src="{{'data:image/jpg;base64,' + picture.photoBase64}}"  />
-      <div style="text-align: right;">
-        <button class="btn-download" style="float: left; margin-left: 8px;" type="submit" value="OPTIONS">OPTIONS</button>
+      <div style="text-align: right; background-color: #34495e; border-radius: 8px; margin-top: 8px; margin-left: 8px;">
+        <a style="float: left; margin-left: 8px; padding-top: 10px; color: white; font-size:x-small;">{{picture.photoName}} </a>
         <a class="btn-download" style="text-align: center; padding-top: 8px; text-decoration: none;" download="custom-filename.jpg" href="{{'http://localhost:8090/photo/downloadFile/'+ picture.photoName}}" title="ImageName">DOWNLOAD</a>
-        <!-- add Modal Popup -->
+        <button class="btn-download" style="text-align: center; padding-top: 8px; text-decoration: none; width: 60px;" (click)=" deleteFile(picture.photoName)" title="ImageName"><img style="width: 25px; height: 25px; vertical-align: top; margin-bottom: 10px;" src="./delete.png"></button>
+        
+        
       </div>
       
   </div>
   
+
 </div>
 

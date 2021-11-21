@@ -16,12 +16,21 @@ export class ClientImageService {
         return this.http.get<any>("http://localhost:8090/photo/getPhotos",{headers : headers})
     }
 
-    //  downloadFile(file : File): Observable<any>{
-    //    const headers = new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'));
+    public deleteImages(photoName: String): Observable<any> {
 
-    //    return this.http.get<any>("http://localhost:8090/photo/downloadFile/**",{headers : headers})
-    //  }
-
+      const headers= new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'));
   
+      const requestOptions = { headers: headers };
+   
+      return this.http.delete("http://localhost:8090/photo/deleteFile/" + photoName , { headers: headers })
+    }
+  
+    searchForPhoto(imageName: any):Observable<any>{
+      const headers = new HttpHeaders().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*').set('Authorization', "Bearer " + localStorage.getItem('token'));
+
+      const requestOptions = { headers: headers };
+      
+      return this.http.get<any>("http://localhost:8090/photo/searchPhoto/" + imageName ,{headers : headers})
+  }
 
 }

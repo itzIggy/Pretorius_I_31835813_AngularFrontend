@@ -36,7 +36,7 @@
   vertical-align: false;
   border-radius: 8px;
   margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 0px;
   background-color: #2c3e50;
   border-color: #2c3e50;
   color: #fff;
@@ -149,5 +149,25 @@ nav {
   span {
       color: #2BD6B4;
   }
+
+  .searchBar{
+    border-radius: 8px;
+    border-color:#34495e ;
+    text-align: center;
+  }
+
+  .btnSearch{
+    border-radius: 8px;
+    background-color: #34495e;
+    color: #fff;
+    border-color: #34495e;
+    margin-left: 8px;
+    width: 130px;
+  }
+  
+  .btnSearch:hover{
+    border-radius: 4px;
+  }
+  
 
   
